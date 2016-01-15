@@ -3,7 +3,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Savoir-faire Linux (<www.savoirfairelinux.com>).
+#    Copyright (C) 2013 Savoirfaire-Linux Inc. (<www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,32 +21,26 @@
 ##############################################################################
 
 {
-    'name': 'Contract ISP Invoice',
-    'version': '1.0',
-    'category': 'Contract Management',
+    'name': 'Product Dependencies',
+    'version': '1.0.1',
+    'category': 'Product Management',
     'description': """
-Invoicing for service based contracts
-=====================================
+Product Dependencies
+====================
 
-Generates invoices for service based contracts.
+Allows products to have other products/categories as dependencies.
 
-Features:
----------
+This module is primarily used by the contract_isp_wizard module to create product/service packages based on product inter-dependencies. It's aim is to provide the basic structure so that other modules can build sales wizards with decision trees based on each product dependency tree.
 
-* Refund on contract closing
-* Exception services invoice logic
-""",
-    'author': "Savoir-faire Linux (joao.gama@savoirfairelinux.com),Odoo Community Association (OCA)",
+This module is not related to the manufacturing process or the Bill of Materials.""",
+    'author': "Savoirfaire-Linux Inc,Odoo Community Association (OCA)",
     'website': 'www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['contract_isp'],
+    'depends': ['product'],
     'data': [
         'security/ir.model.access.csv',
-        'contract_isp_invoice_data.xml',
-        'contract_isp_invoice_view.xml',
-        'wizard/contract_isp_invoice_invoice_create.xml',
-        'wizard/close_contract_view.xml'
+        'product_dependencies_view.xml'
     ],
     'active': False,
-    'installable': True,
+    'installable': False,
 }

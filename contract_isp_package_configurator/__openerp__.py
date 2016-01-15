@@ -21,26 +21,24 @@
 ##############################################################################
 
 {
-    'name': 'Product Dependencies',
-    'version': '1.0.1',
-    'category': 'Product Management',
+    'name': 'Contract ISP Package Configurator',
+    'version': '1.0',
+    'category': 'Sale',
     'description': """
-Product Dependencies
-====================
+Contract ISP Package Configurator
+=================================
 
-Allows products to have other products/categories as dependencies.
-
-This module is primarily used by the contract_isp_wizard module to create product/service packages based on product inter-dependencies. It's aim is to provide the basic structure so that other modules can build sales wizards with decision trees based on each product dependency tree. 
-
-This module is not related to the manufacturing process or the Bill of Materials.""",
+This module provides a wizard to help create service packages based on product inter-dependencies. It uses the dependency tree provided by the product_dependencies module.""",
     'author': "Savoirfaire-Linux Inc,Odoo Community Association (OCA)",
     'website': 'www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['product'],
+    'depends': ['contract_isp', 'product_dependencies', 'stock'],
     'data': [
         'security/ir.model.access.csv',
-        'product_dependencies_view.xml'
+        'wizard/package_configurator.xml',
+        'workflow/contract_isp_package_configurator.xml',
+        'contract_isp_package_configurator_view.xml',
     ],
     'active': False,
-    'installable': True,
+    'installable': False,
 }

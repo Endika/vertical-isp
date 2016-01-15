@@ -3,7 +3,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Savoirfaire-Linux Inc. (<www.savoirfairelinux.com>).
+#    Copyright (C) 2013 Savoir-faire Linux (<www.savoirfairelinux.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,24 +21,32 @@
 ##############################################################################
 
 {
-    'name': 'Contract ISP Package Configurator',
+    'name': 'Contract ISP',
     'version': '1.0',
-    'category': 'Sale',
+    'category': 'Contract Management',
     'description': """
-Contract ISP Package Configurator
-=================================
+Manage service based contracts
+==============================
 
-This module provides a wizard to help create service packages based on product inter-dependencies. It uses the dependency tree provided by the product_dependencies module.""",
-    'author': "Savoirfaire-Linux Inc,Odoo Community Association (OCA)",
+This module adds a service based contract category were you can manage diferent services and service types that are included in the contract.
+
+Features:
+---------
+
+* Differents types of services (recurrent, exceptions, one time only),
+* Pro-rata logic,
+* Service activation wizard.
+""",
+    'author': "Savoir-faire Linux Inc,Odoo Community Association (OCA)",
     'website': 'www.savoirfairelinux.com',
     'license': 'AGPL-3',
-    'depends': ['contract_isp', 'product_dependencies', 'stock'],
-    'data': [
-        'security/ir.model.access.csv',
-        'wizard/package_configurator.xml',
-        'workflow/contract_isp_package_configurator.xml',
-        'contract_isp_package_configurator_view.xml',
-    ],
+    'depends': ['account_analytic_analysis'],
+    'data': ['security/contract_isp_security.xml',
+             'security/ir.model.access.csv',
+             'wizard/activate_contract_service.xml',
+             'contract_isp_view.xml',
+             'contract_isp_data.xml',
+             'contract_isp_workflow.xml'],
     'active': False,
-    'installable': True,
+    'installable': False,
 }
